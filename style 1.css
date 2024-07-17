@@ -1,0 +1,143 @@
+/* Import Google font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+/* Variables CSS */
+:root {
+  --font-family: 'Open Sans', sans-serif;
+  --color-background: #f0f0f0;
+  --color-wrapper-bg: #FFEB3B; /* Amarillo */
+  --color-shadow: rgba(52, 87, 220, 0.2);
+  --color-game-details-bg: #2c3e50;
+  --color-play-board-bg: #FFEB3B; /* Amarillo */
+  --color-food: #e74c3c;
+  --color-head: #8e44ad; /* Morado */
+  --color-body: #8e44ad; /* Morado */
+  --color-obstacle: #44ad52; /* verde */
+  --color-controls: #34495e;
+  --color-border: #2c3e50;
+  --font-size-base: 1rem;
+  --font-size-large: 1.2rem;
+  --font-size-small: 1rem;
+  --color-score: #ecf0f1;
+  --font-family-calibri: 'Calibri', sans-serif;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+/* Wrapper Styles */
+.wrapper {
+  width: 65vmin;
+  height: 70vmin;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--color-wrapper-bg);
+  box-shadow: 0 20px 40px var(--color-shadow);
+}
+
+/* Game Details */
+.game-details {
+  color: var(--color-score);
+  font-weight: 500;
+  font-size: var(--font-size-large);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  background: var(--color-game-details-bg);
+  border-radius: 10px 10px 0 0;
+}
+
+.game-details .score,
+.game-details .high-score {
+  color: var(--color-score);
+  font-family: var(--font-family-calibri);
+}
+
+/* Play Board */
+.play-board {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  background: var(--color-play-board-bg);
+  grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+  border: 5px solid var(--color-border);
+  border-radius: 0 0 10px 10px;
+}
+
+.play-board .food {
+  background: var(--color-food);
+  border-radius: 50%;
+}
+
+.play-board .head {
+  background: var(--color-head);
+  border-radius: 5px;
+}
+
+.play-board .body {
+  background: var(--color-body);
+  border-radius: 5px;
+}
+
+.play-board .obstacle {
+  background: var(--color-obstacle);
+  border-radius: 50%;
+}
+
+/* Controls */
+.controls {
+  display: none;
+  justify-content: space-between;
+}
+
+.controls i {
+  padding: 25px 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-controls);
+  width: calc(100% / 4);
+  cursor: pointer;
+  border-right: 1px solid var(--color-border);
+}
+
+.controls i:last-child {
+  border-right: none;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 800px) {
+  .wrapper {
+    width: 90vmin;
+    height: 115vmin;
+  }
+
+  .game-details {
+    font-size: var(--font-size-small);
+    padding: 10px 20px;
+  }
+
+  .controls {
+    display: flex;
+  }
+
+  .controls i {
+    padding: 15px 0;
+    font-size: 1.2rem;
+  }
+}
